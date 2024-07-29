@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A25206B2C57AA1700BC3A62 /* iOSUX in Frameworks */ = {isa = PBXBuildFile; productRef = 6A25206A2C57AA1700BC3A62 /* iOSUX */; };
 		6A32283F2C5761510077F88E /* iOSUXSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32283E2C5761510077F88E /* iOSUXSampleApp.swift */; };
 		6A3228412C5761510077F88E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3228402C5761510077F88E /* ContentView.swift */; };
 		6A3228432C5761550077F88E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A3228422C5761550077F88E /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A32286A2C5761B90077F88E /* iOSUXPackage in Frameworks */,
+				6A25206B2C57AA1700BC3A62 /* iOSUX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +89,7 @@
 			name = iOSUXSample;
 			packageProductDependencies = (
 				6A3228692C5761B90077F88E /* iOSUXPackage */,
+				6A25206A2C57AA1700BC3A62 /* iOSUX */,
 			);
 			productName = iOSUXSample;
 			productReference = 6A32283B2C5761510077F88E /* iOSUXSample.app */;
@@ -117,6 +120,7 @@
 			);
 			mainGroup = 6A3228322C5761510077F88E;
 			packageReferences = (
+				6A2520692C57AA1700BC3A62 /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = 6A32283C2C5761510077F88E /* Products */;
 			projectDirPath = "";
@@ -352,7 +356,18 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		6A2520692C57AA1700BC3A62 /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		6A25206A2C57AA1700BC3A62 /* iOSUX */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = iOSUX;
+		};
 		6A3228692C5761B90077F88E /* iOSUXPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = iOSUXPackage;
