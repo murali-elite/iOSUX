@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "iosuitoolkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/murali-elite/IOSUIToolKit.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2dae3255962fc7129be48efa16460ea11754832a"
+      }
+    },
+    {
+      "identity" : "swiftlintplugins",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SimplyDanny/SwiftLintPlugins.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2dc958c0fba7c24c309eaf57d6b69d46682a576f"
+      }
+    }
+  ],
+  "version" : 2
+}
