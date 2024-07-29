@@ -1,7 +1,7 @@
 import XCTest
-@testable import iOSUX
+@testable import IOSUX
 
-final class iOSUXTests: XCTestCase {
+final class IOSUXTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest

@@ -4,15 +4,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "iOSUX",
+    name: "IOSUX",
     platforms: [
         .iOS(.v13), // iOS 15 and later
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "iOSUX",
-            targets: ["iOSUX"]),
+            name: "IOSUX",
+            targets: ["IOSUX"]),
     ],
     dependencies: [
         .package(url:"https://github.com/murali-elite/IOSUIToolKit.git", branch: "main"),
@@ -22,19 +22,22 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "iOSUX",
+            name: "IOSUX",
             dependencies: [
                 .product(
                     name: "IOSUIToolKit",
                     package: "IOSUIToolKit")
+            ],
+            resources: [
+                .process("Resources")
             ],
             plugins: [
                 .plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLintPlugins")
             ]
         ),
         .testTarget(
-            name: "iOSUXTests",
-            dependencies: ["iOSUX"],
+            name: "IOSUXTests",
+            dependencies: ["IOSUX"],
             plugins: [
                 .plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLintPlugins")
             ]
