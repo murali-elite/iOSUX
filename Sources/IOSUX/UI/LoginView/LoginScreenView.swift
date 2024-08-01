@@ -70,7 +70,7 @@ public struct LoginScreenView: View {
                                       assets: LoginContainerAssets())
 
                     /// Title and description for the login section.
-                    LoginTitleView(title: LoginScreenStrings.logIn.localized(),
+                    AuthHeaderView(title: LoginScreenStrings.logIn.localized(),
                                    subTitle: LoginScreenStrings.logInDescription.localized(),
                                    assets: LoginTitleAssets())
                     .padding(.vertical, Constants.verticalPadding)
@@ -89,7 +89,7 @@ public struct LoginScreenView: View {
                     }
 
                     /// Buttons for login and sign-up actions
-                    LoginSignUpButtonContainerView(assets: LoginSignUpButtonAssets(),
+                    AuthButtonContainerView(assets: AuthButtonAssets(),
                                                    primaryAction: loginAction,
                                                    secondayAction: signUpAction)
                     .padding(.top, Constants.verticalPadding)

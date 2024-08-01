@@ -1,6 +1,6 @@
 //
 //  LoginContainerAssets.swift
-//  CalixIOSUIToolkit
+//  CalixIOSUX
 //
 //  Created by labmacuser3 on 7/24/24.
 //  Copyright © 2024 Calix Inc. All rights reserved.
@@ -10,7 +10,7 @@ import SwiftUI
 import IOSUIToolKit
 
 /// Struct implementing the `LoginContainerAssets` protocol, providing default colors for a login container.
-struct LoginContainerAssets: LoginContainerAssetsProtocol {
+public struct LoginContainerAssets: LoginContainerAssetsProtocol {
     /// Constants used for font sizes in the login container.
     public enum Constants {
         /// The font size for the heading.
@@ -29,6 +29,8 @@ struct LoginContainerAssets: LoginContainerAssetsProtocol {
     public var forgotPasswordFont: Font
     /// The color of the heading text.
     public var headingTextColor: Color
+    /// The color of the input field text.
+    public var inputFieldTextColor: Color
     /// The color used for the initialization (if this is a typo, consider correcting it).
     public var tintColor: Color
 
@@ -42,15 +44,18 @@ struct LoginContainerAssets: LoginContainerAssetsProtocol {
     ///     Defaults to a system font with a size of `16` and weight `.regular`.
     ///   - forgotPasswordFont: The font used for the forgot password text.
     ///     Defaults to a system font with a size of `14` and weight `.regular`.
-    init(headingTextColor: Color = .white,
+    public init(headingTextColor: Color = .white,
+                inputFieldTextcolor: Color = .white,
                 tintColor: Color = .white,
                 headingFont: Font = .system(size: Constants.headerFontSize, weight: .regular),
                 inputFieldFont: Font = .system(size: Constants.inputFieldFontSize, weight: .regular),
                 forgotPasswordFont: Font = .system(size: Constants.forgotPasswordFontSize, weight: .regular)) {
         self.headingTextColor = headingTextColor
+        self.inputFieldTextColor = inputFieldTextcolor
         self.tintColor = tintColor
         self.headingFont = headingFont
         self.inputFieldFont = inputFieldFont
         self.forgotPasswordFont = forgotPasswordFont
     }
 }
+

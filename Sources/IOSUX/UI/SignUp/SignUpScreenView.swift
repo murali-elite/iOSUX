@@ -71,9 +71,9 @@ public struct SignUpScreenView: View {
                                       assets: LoginContainerAssets())
 
                     /// Title and description for the login section.
-                    LoginTitleView(title: LoginScreenStrings.logIn.localized(),
-                                   subTitle: LoginScreenStrings.logInDescription.localized(),
-                                   assets: LoginTitleAssets())
+                    AuthHeaderView(assets: AuthHeaderAssets(),
+                                   title: LoginScreenStrings.logIn.localized(),
+                                   subTitle: LoginScreenStrings.logInDescription.localized())
                     .padding(.vertical, Constants.verticalPadding)
                     
                     if #available(iOS 14.0, *) {
@@ -98,7 +98,7 @@ public struct SignUpScreenView: View {
                     }
 
                     /// Buttons for login and sign-up actions
-                    LoginSignUpButtonContainerView(assets: LoginSignUpButtonAssets(),
+                    AuthButtonContainerView(assets: AuthButtonAssets(),
                                                    primaryAction: loginAction,
                                                    secondayAction: signUpAction)
                     .padding(.top, Constants.verticalPadding)

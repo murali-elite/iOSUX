@@ -1,6 +1,6 @@
 //
-//  LoginTitleAssets.swift
-//  CalixIOSUIToolkit
+//  AuthHeaderAssets.swift
+//  CalixIOSUX
 //
 //  Created by labmacuser3 on 7/25/24.
 //  Copyright © 2024 Calix Inc. All rights reserved.
@@ -10,7 +10,7 @@ import SwiftUI
 import IOSUIToolKit
 
 /// A struct that provides colors and fonts for the title assets in a login view.
-struct LoginTitleAssets: LoginTitleAsstesProtocol {
+public struct AuthHeaderAssets: AuthHeaderAsstesProtocol {
     /// Constants used for font sizes in the login title assets.
     public enum Constants {
         /// The font size for the header text.
@@ -40,7 +40,7 @@ struct LoginTitleAssets: LoginTitleAsstesProtocol {
     ///     Defaults to a system font with a size of `32` and weight `.bold`.
     ///   - subHeadingFont: The font used for the subheading text.
     ///      Defaults to a system font with a size of `15` and weight `.regular`.
-    init(headerTextColor: Color = .white,
+    public init(headerTextColor: Color = .white,
                 subHeadingTextColor: Color = .white,
                 headingFont: Font = .system(size: Constants.headerFontSize, weight: .bold),
                 subHeadingFont: Font = .system(size: Constants.subHeadingFontSize, weight: .regular)) {
@@ -50,3 +50,4 @@ struct LoginTitleAssets: LoginTitleAsstesProtocol {
         self.subHeadingFont = subHeadingFont
     }
 }
+
