@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "IOSUX",
     platforms: [
-        .iOS(.v13), // iOS 15 and later
+        .iOS(.v13), // iOS 15 and later\
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.

@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import IOSUX
 
 @main
 struct iOSUXSampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreenView()
         }
     }
 }

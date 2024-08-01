@@ -3,10 +3,10 @@
     {
       "identity" : "iosuitoolkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/murali-elite/IOSUIToolKit.git",
+      "location" : "https://github.com/murali-elite/iOSUIToolKit.git",
       "state" : {
         "branch" : "main",
-        "revision" : "cdd3e69347a84e9f564684f7b20d2b09e58fe0b4"
+        "revision" : "78dc6fe482f14627105d2604a87be93d80848202"
       }
     },
     {
