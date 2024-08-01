@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  iOSUXSample
+//  IOSUXTestApp
 //
-//  Created by Murali moorthy on 7/29/24.
+//  Created by Murali moorthy on 8/1/24.
 //
 
 import SwiftUI
@@ -16,9 +16,6 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
-        
-        Sample()
-        
     }
 }
 

@@ -16,11 +16,11 @@ public struct SplashScreenView: View {
         static var buttonTopPadding: CGFloat = 40
     }
 
-    /// An array of `LandingBannerItem` objects used to populate the landing animation view.
+    /// An array of LandingBannerItem objects used to populate the landing animation view.
     private var items: [LandingBannerItem] = [
         LandingBannerItem(title: SplashScreenStrings.gloablNetworkTitle.localized(),
                           description: SplashScreenStrings.gloablNetworkDescription.localized(),
-                          image: Image("Landing-Globel-Image", bundle: .module)),
+                          image: Image("Landing-Global-Image", bundle: .module)),
         LandingBannerItem(title: SplashScreenStrings.homeNetworkTitle.localized(),
                           description: SplashScreenStrings.homeNetworkDescription.localized(),
                           image: Image("Landing-Home-Image", bundle: .module)),
@@ -29,9 +29,9 @@ public struct SplashScreenView: View {
                           image: Image("Landing-Security-Image", bundle: .module))
     ]
 
-    /// The main view body of the `SplashScreenView`.
+    /// The main view body of the SplashScreenView.
     ///
-    /// This property conditionally uses `NavigationStack` or `NavigationView` based on iOS version
+    /// This property conditionally uses NavigationStack or NavigationView based on iOS version
     /// and provides the layout and content for the splash screen, including a welcome banner,
     /// landing animation, and a navigation link to the login screen.
     public var body: some View {
@@ -50,7 +50,7 @@ public struct SplashScreenView: View {
     /// and navigation elements.
     ///
     /// This view contains the welcome banner, landing animation view, and a navigation link
-    /// to the login screen. It is used within the `body` property to build the overall layout.
+    /// to the login screen. It is used within the body property to build the overall layout.
     private var content: some View {
         ZStack {
             Color.appPrimaryColor
@@ -64,8 +64,7 @@ public struct SplashScreenView: View {
                     LandingAnimationView(items: items)
 
                     NavigationLink {
-//                        LoginScreenView()
-//                            .navigationBarBackButtonHidden()
+                        // Your destination view here
                     } label: {
                         Text(SplashScreenStrings.letsGetStarted.localized())
                             .foregroundColor(.appPrimaryColor)
@@ -77,6 +76,8 @@ public struct SplashScreenView: View {
             .padding()
         }
     }
+
+    public init() {}
 }
 
 #Preview {
