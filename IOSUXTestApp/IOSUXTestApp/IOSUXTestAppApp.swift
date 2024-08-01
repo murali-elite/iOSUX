@@ -14,7 +14,7 @@ struct IOSUXTestAppApp: App {
         WindowGroup {
             //ContentView()
             
-            ExampleView()
+            SplashScreenView()
         }
     }
 }

@@ -20,7 +20,7 @@ public struct SplashScreenView: View {
     private var items: [LandingBannerItem] = [
         LandingBannerItem(title: SplashScreenStrings.gloablNetworkTitle.localized(),
                           description: SplashScreenStrings.gloablNetworkDescription.localized(),
-                          image: Image("Landing-Global-Image", bundle: .module)),
+                          image: Image("Landing-Globel-Image", bundle: .module)),
         LandingBannerItem(title: SplashScreenStrings.homeNetworkTitle.localized(),
                           description: SplashScreenStrings.homeNetworkDescription.localized(),
                           image: Image("Landing-Home-Image", bundle: .module)),
@@ -64,7 +64,7 @@ public struct SplashScreenView: View {
                     LandingAnimationView(items: items)
 
                     NavigationLink {
-                        // Your destination view here
+                        LoginScreenView()
                     } label: {
                         Text(SplashScreenStrings.letsGetStarted.localized())
                             .foregroundColor(.appPrimaryColor)
