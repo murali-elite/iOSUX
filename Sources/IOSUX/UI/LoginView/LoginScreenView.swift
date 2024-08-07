@@ -29,6 +29,7 @@ public struct LoginScreenView: View {
     @State private var resetLocation: String = "USA"
     @State private var isPasswordHidden: Bool = true
     @State private var isPopupPresented: Bool = false
+    @State private var isValidEmail: Bool = false
     @State private var detentHeight: CGFloat = 0
     @State var isActiveSignUpPresentation: Bool = false
 
@@ -49,7 +50,7 @@ public struct LoginScreenView: View {
         } else {
             NavigationView {
                 content
-                NavigationLink(LoginPageString.signIn.rawValue, isActive: $isActiveSignUpPresentation) {
+                NavigationLink(LoginScreenStrings.signUp.rawValue, isActive: $isActiveSignUpPresentation) {
                     Text("Sign Up")
                 }
             }
@@ -70,9 +71,9 @@ public struct LoginScreenView: View {
                                       assets: LoginContainerAssets())
 
                     /// Title and description for the login section.
-                    AuthHeaderView(title: LoginScreenStrings.logIn.localized(),
-                                   subTitle: LoginScreenStrings.logInDescription.localized(),
-                                   assets: LoginTitleAssets())
+                    AuthHeaderView(assets: AuthHeaderAssets(),
+                                   title: LoginScreenStrings.logIn.localized(),
+                                   subTitle: LoginScreenStrings.logInDescription.localized())
                     .padding(.vertical, Constants.verticalPadding)
 
                     /// Input fields for login credentials
@@ -81,6 +82,7 @@ public struct LoginScreenView: View {
                                        location: $location,
                                        isPasswordHidden: $isPasswordHidden,
                                        isPopupPresented: $isPopupPresented,
+                                       isValidEmail: $isValidEmail,
                                        locations: locations,
                                        assets: LoginContainerAssets())
 
@@ -90,8 +92,8 @@ public struct LoginScreenView: View {
 
                     /// Buttons for login and sign-up actions
                     AuthButtonContainerView(assets: AuthButtonAssets(),
-                                                   primaryAction: loginAction,
-                                                   secondayAction: signUpAction)
+                                            primaryAction: loginAction,
+                                            secondayAction: signUpAction)
                     .padding(.top, Constants.verticalPadding)
                 }
             }

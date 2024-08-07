@@ -50,4 +50,3 @@ public struct AuthHeaderAssets: AuthHeaderAsstesProtocol {
         self.subHeadingFont = subHeadingFont
     }
 }
-

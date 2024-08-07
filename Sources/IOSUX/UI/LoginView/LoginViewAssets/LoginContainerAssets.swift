@@ -29,10 +29,12 @@ public struct LoginContainerAssets: LoginContainerAssetsProtocol {
     public var forgotPasswordFont: Font
     /// The color of the heading text.
     public var headingTextColor: Color
-    /// The color of the input field text.
+    /// The color of the heading text.
     public var inputFieldTextColor: Color
     /// The color used for the initialization (if this is a typo, consider correcting it).
     public var tintColor: Color
+    /// The color of the check mark.
+   public  var checkMarkForgroundColor: Color
 
     /// Initializes a `LoginContainerAssets` instance with specified colors and fonts.
     /// - Parameters:
@@ -44,18 +46,19 @@ public struct LoginContainerAssets: LoginContainerAssetsProtocol {
     ///     Defaults to a system font with a size of `16` and weight `.regular`.
     ///   - forgotPasswordFont: The font used for the forgot password text.
     ///     Defaults to a system font with a size of `14` and weight `.regular`.
-    public init(headingTextColor: Color = .white,
-                inputFieldTextcolor: Color = .white,
-                tintColor: Color = .white,
-                headingFont: Font = .system(size: Constants.headerFontSize, weight: .regular),
-                inputFieldFont: Font = .system(size: Constants.inputFieldFontSize, weight: .regular),
-                forgotPasswordFont: Font = .system(size: Constants.forgotPasswordFontSize, weight: .regular)) {
+    init(headingTextColor: Color = .white,
+         tintColor: Color = .white,
+         headingFont: Font = .headline,
+         inputFieldFont: Font = .callout,
+         forgotPasswordFont: Font = .subheadline,
+         inputFieldTextColor: Color = .white,
+         checkMarkForgroundColor: Color = .green) {
         self.headingTextColor = headingTextColor
-        self.inputFieldTextColor = inputFieldTextcolor
         self.tintColor = tintColor
         self.headingFont = headingFont
         self.inputFieldFont = inputFieldFont
         self.forgotPasswordFont = forgotPasswordFont
+        self.inputFieldTextColor = inputFieldTextColor
+        self.checkMarkForgroundColor = checkMarkForgroundColor
     }
 }
-

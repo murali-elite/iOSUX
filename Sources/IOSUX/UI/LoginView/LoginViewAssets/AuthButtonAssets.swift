@@ -10,39 +10,50 @@ import SwiftUI
 import IOSUIToolKit
 
 /// A structure representing the assets for an authentication button.
-struct AuthButtonAssets: AuthButtonAssetsProtocol {
+public struct AuthButtonAssets: AuthButtonAssetsProtocol {
+    // MARK: - Constants
+
+    /// Contains font size constants used throughout the application.
+    public enum FontSize {
+        /// The font size used for button text.
+        public static let buttonText: CGFloat = 15
+
+        /// The font size used for header text.
+        public static let headerText: CGFloat = 14
+    }
+
     /// The primary text displayed on the authentication button.
-    var primaryText: String
+    public  var primaryText: String
 
     /// The secondary text displayed alongside the authentication button.
-    var secondaryText: String
+    public var secondaryText: String
 
     /// The font used for the primary text.
-    var primaryTextFont: Font
+    public var primaryTextFont: Font
 
     /// The font used for the secondary text.
-    var secondaryTextFont: Font
+    public var secondaryTextFont: Font
 
     /// The foreground color of the primary text.
-    var primaryForegroundColor: Color
+    public var primaryForegroundColor: Color
 
     /// The background color of the primary button.
-    var primaryBackgroundColor: Color
+    public var primaryBackgroundColor: Color
 
     /// The heading text displayed above or below the button.
-    var headingText: String
+    public var headingText: String
 
     /// The color of the heading text.
-    var headingTextColor: Color
+    public var headingTextColor: Color
 
     /// The font used for the heading text.
-    var headingTextFont: Font
+    public var headingTextFont: Font
 
     /// The border color of the secondary button.
-    var secondaryBorderColor: Color
+    public var secondaryBorderColor: Color
 
     /// The foreground color of the secondary button.
-    var secondaryForegroundColor: Color
+    public var secondaryForegroundColor: Color
 
     /// Initializes an `AuthButtonAssets` instance with default values.
     ///
@@ -60,13 +71,13 @@ struct AuthButtonAssets: AuthButtonAssetsProtocol {
     ///   - secondaryForegroundColor: The foreground color of the secondary button. Defaults to `.clear`.
     public init(primaryText: String = "Log In",
                 secondaryText: String = "Sign Up",
-                primaryTextFont: Font = .system(size: 15),
-                secondaryTextFont: Font = .system(size: 15),
+                primaryTextFont: Font = .system(size: FontSize.buttonText),
+                secondaryTextFont: Font = .system(size: FontSize.buttonText),
                 primaryForegroundColor: Color = .blue,
                 primaryBackgroundColor: Color = .white,
                 headingText: String = "Don’t have a Login?",
                 headingTextColor: Color = .white,
-                headingTextFont: Font = .system(size: 14),
+                headingTextFont: Font = .system(size: FontSize.headerText),
                 secondaryBorderColor: Color = .white,
                 secondaryForegroundColor: Color = .white) {
         self.primaryText = primaryText
@@ -82,3 +93,4 @@ struct AuthButtonAssets: AuthButtonAssetsProtocol {
         self.secondaryForegroundColor = secondaryForegroundColor
     }
 }
+

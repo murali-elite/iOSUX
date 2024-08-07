@@ -1,8 +1,9 @@
 //
-//  SwiftUIView.swift
-//  
+//  LoginScreenStrings.swift
+//  CalixIOSUX
 //
-//  Created by Murali moorthy on 7/30/24.
+//  Created by labmacuser3 on 7/31/24.
+//  Copyright © 2024 Calix Inc. All rights reserved.
 //
 
 import SwiftUI
@@ -11,6 +12,9 @@ import SwiftUI
 public enum LoginScreenStrings: String {
     /// The log in label text.
     case logIn = "Log In"
+
+    /// The sign Up label text.
+    case signUp = "Sign Up"
 
     /// The description text for the log in screen.
     case logInDescription = "Everything you need to secure and control your home network and connected devices."
