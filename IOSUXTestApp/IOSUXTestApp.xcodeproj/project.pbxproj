@@ -12,6 +12,8 @@
 		6A194A292C5BA61A00881651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A194A282C5BA61A00881651 /* Assets.xcassets */; };
 		6A194A2C2C5BA61A00881651 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A194A2B2C5BA61A00881651 /* Preview Assets.xcassets */; };
 		6A194A342C5BA6A400881651 /* IOSUX in Frameworks */ = {isa = PBXBuildFile; productRef = 6A194A332C5BA6A400881651 /* IOSUX */; };
+		6A5056A02C64814100D6F78B /* IOSUX in Frameworks */ = {isa = PBXBuildFile; productRef = 6A50569F2C64814100D6F78B /* IOSUX */; };
+		6ADA1D372C63B8B600A0BA72 /* IOSUX in Frameworks */ = {isa = PBXBuildFile; productRef = 6ADA1D362C63B8B600A0BA72 /* IOSUX */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +29,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A5056A02C64814100D6F78B /* IOSUX in Frameworks */,
 				6A194A342C5BA6A400881651 /* IOSUX in Frameworks */,
+				6ADA1D372C63B8B600A0BA72 /* IOSUX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +91,8 @@
 			name = IOSUXTestApp;
 			packageProductDependencies = (
 				6A194A332C5BA6A400881651 /* IOSUX */,
+				6ADA1D362C63B8B600A0BA72 /* IOSUX */,
+				6A50569F2C64814100D6F78B /* IOSUX */,
 			);
 			productName = IOSUXTestApp;
 			productReference = 6A194A212C5BA61900881651 /* IOSUXTestApp.app */;
@@ -117,7 +123,7 @@
 			);
 			mainGroup = 6A194A182C5BA61900881651;
 			packageReferences = (
-				6A194A322C5BA6A400881651 /* XCLocalSwiftPackageReference ".." */,
+				6A50569E2C64814100D6F78B /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = 6A194A222C5BA61900881651 /* Products */;
 			projectDirPath = "";
@@ -354,7 +360,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		6A194A322C5BA6A400881651 /* XCLocalSwiftPackageReference ".." */ = {
+		6A50569E2C64814100D6F78B /* XCLocalSwiftPackageReference ".." */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ..;
 		};
@@ -362,6 +368,14 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		6A194A332C5BA6A400881651 /* IOSUX */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = IOSUX;
+		};
+		6A50569F2C64814100D6F78B /* IOSUX */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = IOSUX;
+		};
+		6ADA1D362C63B8B600A0BA72 /* IOSUX */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = IOSUX;
 		};

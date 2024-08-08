@@ -32,6 +32,9 @@ public struct LoginScreenView: View {
     @State private var isValidEmail: Bool = false
     @State private var detentHeight: CGFloat = 0
     @State var isActiveSignUpPresentation: Bool = false
+    
+    @ObservedObject var viewModel = LoginViewModel()
+    
 
     /// A list of available locations for selection.
     private var locations: [String] = ["USA", "Canada", "France", "Germany", "Africa"]
@@ -46,12 +49,19 @@ public struct LoginScreenView: View {
                     .navigationDestination(isPresented: $isActiveSignUpPresentation) {
                         Text("Sign Up")
                     }
+                
+                    .navigationDestination(isPresented: $viewModel.isLoginSuccess) {
+                        Text("Dashboard")
+                    }
             }
         } else {
             NavigationView {
                 content
                 NavigationLink(LoginScreenStrings.signUp.rawValue, isActive: $isActiveSignUpPresentation) {
                     Text("Sign Up")
+                }
+                NavigationLink("Dashboard", isActive: $isActiveSignUpPresentation) {
+                    Text("Dashboard")
                 }
             }
         }
@@ -141,6 +151,13 @@ public struct LoginScreenView: View {
     /// Handles the action for logging in.
     private func loginAction() {
         // Handle login action
+        Task {
+            do {
+                try await viewModel.fetchData(email: email, password: password)
+            } catch {
+                print("Login Error", error)
+            }
+        }
     }
 
     /// Handles the action for signing up.

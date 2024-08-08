@@ -1,12 +1,30 @@
 {
   "pins" : [
     {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "f455c2975872ccd2d9c81594c658af65716e9b9a",
+        "version" : "5.9.1"
+      }
+    },
+    {
+      "identity" : "iosservices",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/murali-elite/IOSServices.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "1b109d0873204dbfbd081be9dc7259ca4007c095"
+      }
+    },
+    {
       "identity" : "iosuitoolkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/murali-elite/IOSUIToolKit.git",
       "state" : {
         "branch" : "main",
-        "revision" : "1d10f8814c4e064566e73f309767cb80f27d0758"
+        "revision" : "0cda342f3123124e74c3038eb259836c236a801f"
       }
     },
     {
