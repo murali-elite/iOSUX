@@ -8,29 +8,32 @@
 import SwiftUI
 import IOSServices
 
+//@MainActor
 class LoginViewModel: ObservableObject {
-    
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var location: String = "USA"
-    @State private var resetEmail: String = ""
-    @State private var resetLocation: String = "USA"
-    @State private var isPasswordHidden: Bool = true
-    @State private var isPopupPresented: Bool = false
-    @State private var isValidEmail: Bool = false
-    @State var isLoginSuccess: Bool = false
-    
+    @Published var email: String = ""
+    @Published var password: String = ""
+    @Published var location: String = "USA"
+    @Published var resetEmail: String = ""
+    @Published var resetLocation: String = "USA"
+    @Published var isValidEmail: Bool = false
+    @Published var isLoginSuccess: Bool = false
+    @Published var isShowAlert: Bool = false
+    @Published var isShowLoader: Bool = false
+    var errorMessage: String = ""
+
+    /// A list of available locations for selection.
+    var locations: [String] = ["USA", "Canada", "France", "Germany", "Africa"]
+
     var services: CalixIOSServisable
-    
+
     init(services: CalixIOSServisable = CalixIOSService()) {
         self.services = services
     }
-    
-    
-    func fetchData(email: String, password: String) async throws {
+
+    func sendRequest() async throws {
         let parameters: [String: Any] = [
-            "email": "jessicasmb@calix.com",
-            "password": "12345678",
+            "email": email,
+            "password": password,
             "mobileDevice": [
                 "id": "",
                 "notificationToken": "",
@@ -41,11 +44,40 @@ class LoginViewModel: ObservableObject {
             ]
         ]
         let value = try await services.sendRequest(parameters: parameters)
-        
-        if let email = value.email {
-            isLoginSuccess = true
-        } else {
+
+        if value.errorDesc == nil {
             isLoginSuccess = false
+            isShowAlert = true
+            errorMessage = value.errorDesc ?? "Error"
+        } else {
+            isLoginSuccess = true
         }
+    }
+
+    func checkValidation() {
+        if email.isEmpty && isValidEmail(email) {
+            errorMessage = "Enter valid email address"
+            isShowAlert = true
+        } else if password.isEmpty {
+            errorMessage = "Enter valid password"
+            isShowAlert = true
+        } else {
+            Task {
+                do {
+                    isShowLoader = true
+                    try await sendRequest()
+                    isShowLoader = false
+                } catch {
+                    print("Error", error)
+                }
+            }
+        }
+    }
+
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
     }
 }

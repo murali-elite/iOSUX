@@ -21,23 +21,12 @@ public struct LoginScreenView: View {
     }
 
     // MARK: - Properties
+    @ObservedObject var viewModel = LoginViewModel()
 
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var location: String = "USA"
-    @State private var resetEmail: String = ""
-    @State private var resetLocation: String = "USA"
     @State private var isPasswordHidden: Bool = true
     @State private var isPopupPresented: Bool = false
-    @State private var isValidEmail: Bool = false
-    @State private var detentHeight: CGFloat = 0
     @State var isActiveSignUpPresentation: Bool = false
-    
-    @ObservedObject var viewModel = LoginViewModel()
-    
-
-    /// A list of available locations for selection.
-    private var locations: [String] = ["USA", "Canada", "France", "Germany", "Africa"]
+    @State private var detentHeight: CGFloat = 0
 
     // MARK: - View
 
@@ -49,18 +38,18 @@ public struct LoginScreenView: View {
                     .navigationDestination(isPresented: $isActiveSignUpPresentation) {
                         Text("Sign Up")
                     }
-                
                     .navigationDestination(isPresented: $viewModel.isLoginSuccess) {
                         Text("Dashboard")
                     }
             }
+            .showLoader($viewModel.isShowLoader)
         } else {
             NavigationView {
                 content
                 NavigationLink(LoginScreenStrings.signUp.rawValue, isActive: $isActiveSignUpPresentation) {
                     Text("Sign Up")
                 }
-                NavigationLink("Dashboard", isActive: $isActiveSignUpPresentation) {
+                NavigationLink("Dashboard", isActive: $viewModel.isLoginSuccess) {
                     Text("Dashboard")
                 }
             }
@@ -87,13 +76,13 @@ public struct LoginScreenView: View {
                     .padding(.vertical, Constants.verticalPadding)
 
                     /// Input fields for login credentials
-                    LoginContainerView(email: $email,
-                                       password: $password,
-                                       location: $location,
+                    LoginContainerView(email: $viewModel.email,
+                                       password: $viewModel.password,
+                                       location: $viewModel.location,
                                        isPasswordHidden: $isPasswordHidden,
                                        isPopupPresented: $isPopupPresented,
-                                       isValidEmail: $isValidEmail,
-                                       locations: locations,
+                                       isValidEmail: $viewModel.isValidEmail,
+                                       locations: viewModel.locations,
                                        assets: LoginContainerAssets())
 
                     .sheet(isPresented: $isPopupPresented) {
@@ -108,6 +97,12 @@ public struct LoginScreenView: View {
                 }
             }
             .padding()
+        }
+
+        .alert(isPresented: $viewModel.isShowAlert) {
+            Alert(title: Text("CommandIQ"),
+                  message: Text(viewModel.errorMessage),
+                  dismissButton: .default(Text("Ok")))
         }
     }
 
@@ -132,9 +127,9 @@ public struct LoginScreenView: View {
     /// - Returns: A `View` for resetting the password, including form fields and actions.
     @ViewBuilder
     private func resetPasswordSheetContent() -> some View {
-        ResetPasswordContainerView(email: $resetEmail,
-                                   location: $resetLocation,
-                                   locations: locations,
+        ResetPasswordContainerView(email: $viewModel.resetEmail,
+                                   location: $viewModel.resetLocation,
+                                   locations: viewModel.locations,
                                    assets: ResetPasswordAssets(),
                                    submitAction: resetPasswordSubmitAction,
                                    cancelAction: resetPasswordCancelAction)
@@ -150,14 +145,7 @@ public struct LoginScreenView: View {
 
     /// Handles the action for logging in.
     private func loginAction() {
-        // Handle login action
-        Task {
-            do {
-                try await viewModel.fetchData(email: email, password: password)
-            } catch {
-                print("Login Error", error)
-            }
-        }
+        viewModel.checkValidation()
     }
 
     /// Handles the action for signing up.
@@ -173,9 +161,47 @@ public struct LoginScreenView: View {
     /// Handles the action for canceling the reset password form.
     private func resetPasswordCancelAction() {
         // Handle Cancel Action
+        
     }
 }
 
 #Preview {
     LoginScreenView()
+}
+
+
+public enum SplashScreenStrings1: String {
+    /// The label for the welcome message.
+    case welcome = "splash_welcome"
+
+    /// The application name.
+    case appName = "splash_appName"
+
+    /// The application button name.
+    case letsGetStarted = "splash_let_get_start"
+
+    /// The title for the global network section.
+    case globalNetworkTitle = "splash_control_network"
+
+    /// The description for the global network section.
+    case globalNetworkDescription = "splash_manage_connectivity"
+
+    /// The title for the home network section.
+    case homeNetworkTitle = "splash_manage_home"
+
+    /// The description for the home network section.
+    case homeNetworkDescription = "splash_device_people"
+
+    /// The title for the security network section.
+    case securityNetworkTitle = "splash_secure_your_network"
+
+    /// The description for the security network section.
+    case securityNetworkDescription = "splash_access_wireless_password"
+
+    /// Returns the localized string for the enum case.
+    public var localized: String {
+        // swiftlint:disable nslocalizedstring_key
+        NSLocalizedString(self.rawValue, bundle: .main, comment: "\(self.rawValue) label")
+        // swiftlint:enable nslocalizedstring_key
+    }
 }

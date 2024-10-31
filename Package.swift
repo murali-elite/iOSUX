@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "IOSUX",
     platforms: [
-        .iOS(.v13), // Adjust if needed
+        .iOS(.v16), // Adjust if needed
     ],
     products: [
         .library(
